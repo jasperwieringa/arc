@@ -10,5 +10,18 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
+  staticDirs: ['../assets'],
+  previewHead: head => `
+    ${head}
+    <style>
+        #storybook-root, #root-inner { height: 100%; }
+        .sb-show-main.sb-main-padded { padding: 0; }
+        .code-block {
+          background-color: rgb(var(--arc-background-color));
+          padding: 5px;
+          border-radius: 5px;
+        }
+    </style>
+  `,
 };
 export default config;

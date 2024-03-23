@@ -13,17 +13,14 @@
   ],
   "scripts": {
     "prepare": "husky install",
-    "start": "tsc && concurrently -k -r \"yarn run analyze --watch\" \"tsc --watch --preserveWatchOutput\" \"wds\"",
+    "start": "tsc && concurrently -k -r \"yarn run analyze --watch\" \"tsc --watch --preserveWatchOutput\" \"storybook dev -p 6006\"",
     "build": "tsc && yarn run analyze --outdir dist && rollup -c rollup.config.js",
     "create": "plop --plopfile scripts/plop/plopfile.mjs",
     "test": "wtr --coverage",
     "test:watch": "concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\"",
-    "storybook": "storybook dev -p 6006",
-    "storybook:build": "tsc && yarn run analyze && build-storybook",
     "lint": "eslint --ext .ts,.html . --ignore-path .gitignore && prettier \"**/*.ts\" --check --ignore-path .gitignore && stylelint \"**/*.css\" --ignore-path .gitignore",
     "format": "eslint --ext .ts,.html . --fix --ignore-path .gitignore && prettier \"**/*.ts\" --write --ignore-path .gitignore && stylelint \"**/*.css\" --fix --ignore-path .gitignore",
-    "analyze": "cem analyze --litelement --exclude out-tsc --exclude dist",
-    "build-storybook": "storybook build"
+    "analyze": "cem analyze --litelement --exclude out-tsc --exclude dist"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.6.3",
