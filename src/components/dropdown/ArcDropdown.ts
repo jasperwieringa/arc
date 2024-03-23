@@ -24,23 +24,6 @@ import type ArcMenuItem from '../menu-item/ArcMenuItem.js';
  */
 export default class ArcDropdown extends LitElement {
   /** @internal */
-  static tag = 'arc-dropdown';
-
-  static styles = styles;
-
-  /** @internal */
-  @query('#trigger') trigger: HTMLElement;
-
-  /** @internal */
-  @query('#triggerSlot') triggerSlot: HTMLSlotElement;
-
-  /** @internal */
-  @query('#positioner') positioner: HTMLElement;
-
-  /** @internal */
-  @query('#panel') panel: HTMLElement;
-
-  /** @internal */
   private _positionerCleanup: ReturnType<typeof autoUpdate> | undefined;
 
   /** The preferred placement of the dropdown panel. */
@@ -70,6 +53,22 @@ export default class ArcDropdown extends LitElement {
   /** Enable this option to prevent the panel from being clipped when the component is placed inside a container with overflow: auto|hidden|scroll. */
   @property({ type: Boolean, reflect: true })
   hoist: boolean = false;
+
+  /** @internal */
+  @query('#trigger')
+  trigger: HTMLElement;
+
+  /** @internal */
+  @query('#triggerSlot')
+  triggerSlot: HTMLSlotElement;
+
+  /** @internal */
+  @query('#positioner')
+  positioner: HTMLElement;
+
+  /** @internal */
+  @query('#panel')
+  panel: HTMLElement;
 
   @watch('open', { waitUntilFirstUpdate: true })
   async handleOpenChange() {
@@ -120,6 +119,8 @@ export default class ArcDropdown extends LitElement {
       this.hide();
     }
   }
+
+  static styles = styles;
 
   connectedCallback() {
     super.connectedCallback();

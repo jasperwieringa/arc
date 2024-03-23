@@ -19,20 +19,6 @@ import styles from './arc-image.styles.js';
  * @event arc-error - Emitted when the image cannot be loaded.
  */
 export default class ArcImage extends LitElement {
-  /** @internal */
-  static tag = 'arc-image';
-
-  static styles = styles;
-
-  /** @internal */
-  @query('#main') container: HTMLElement;
-
-  /** @internal */
-  @query('#image') image: HTMLImageElement;
-
-  /** @internal */
-  @query('#loader') loader: HTMLElement;
-
   /** @internal - Reference to the intersection observer. */
   private _intersectionObserver: IntersectionObserver;
 
@@ -46,17 +32,13 @@ export default class ArcImage extends LitElement {
   /** @internal - Used to set a timeout on loading the image. */
   private _loadTimer: number | null = null;
 
-  /** @internal - Loading state of the image. */
-  @state() private _loading: boolean = false;
-
-  /** @internal - Is a valid image loaded?. */
-  @state() private _hasImage: boolean = false;
-
   /** Set the path to the image. */
-  @property({ type: String }) src: string;
+  @property({ type: String })
+  src: string;
 
   /** Set the alternate text for the image. */
-  @property({ type: String }) alt: string;
+  @property({ type: String })
+  alt: string;
 
   /** Set the delay in ms before loading the image. */
   @property({
@@ -66,10 +48,32 @@ export default class ArcImage extends LitElement {
   delay: number = 1000;
 
   /** Set the width of the image. */
-  @property({ type: String }) width: string;
+  @property({ type: String })
+  width: string;
 
   /** Set the height of the image. */
-  @property({ type: String }) height: string;
+  @property({ type: String })
+  height: string;
+
+  /** @internal - Loading state of the image. */
+  @state()
+  private _loading: boolean = false;
+
+  /** @internal - Is a valid image loaded?. */
+  @state()
+  private _hasImage: boolean = false;
+
+  /** @internal */
+  @query('#main')
+  container: HTMLElement;
+
+  /** @internal */
+  @query('#image')
+  image: HTMLImageElement;
+
+  /** @internal */
+  @query('#loader')
+  loader: HTMLElement;
 
   @watch('src', { waitUntilFirstUpdate: true })
   handleSrcChange() {
@@ -86,6 +90,8 @@ export default class ArcImage extends LitElement {
       await stopAnimations(this.loader);
     }
   }
+
+  static styles = styles;
 
   firstUpdated() {
     this._attachObserver();

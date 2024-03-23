@@ -6,16 +6,15 @@ import styles from './arc-bottombar.styles.js';
  * @slot - This slot is used to add icon-buttons to the bottom bar.
  */
 export default class ArcBottombar extends LitElement {
-  /** @internal */
-  static tag = 'arc-bottombar';
-
-  static styles = styles;
-
   /** @internal - State that stores the max tab count */
-  @state() private tabs: number = 5;
+  @state()
+  private tabs: number = 5;
 
   /** @internal - State that keeps track of the current tab count */
-  @state() private tabCount: number;
+  @state()
+  private tabCount: number;
+
+  static styles = styles;
 
   /* Whenever a tab changes, update the tabCount */
   private _handleTabChange(e: any) {

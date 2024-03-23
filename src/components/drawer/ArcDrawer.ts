@@ -30,20 +30,6 @@ import '../icon-button/arc-icon-button.js';
  * @cssproperty --size - The preferred size of the drawer. This will be applied to either the width or height depending on its placement.
  */
 export default class ArcDrawer extends LitElement {
-  /** @internal */
-  static tag = 'arc-drawer';
-
-  static styles = styles;
-
-  /** @internal */
-  @query('#main') drawer: HTMLElement;
-
-  /** @internal */
-  @query('#panel') panel: HTMLElement;
-
-  /** @internal */
-  @query('#overlay') overlay: HTMLElement;
-
   /** @internal - Reference to the Modal class. */
   private modal: Modal;
 
@@ -51,16 +37,32 @@ export default class ArcDrawer extends LitElement {
   private originalTrigger: HTMLElement | null;
 
   /** Indicates whether the drawer is open. This can be used instead of the show/hide methods. */
-  @property({ type: Boolean, reflect: true }) open: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  open: boolean = false;
 
   /** By default, the drawer slides out of its containing block (usually the viewport). To make the drawer slide out of its parent element, set this prop and add position: relative to the parent. */
-  @property({ type: Boolean, reflect: true }) contained: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  contained: boolean = false;
 
   /** The direction from which the drawer will open. */
-  @property({ type: String, reflect: true }) placement: DrawerPlacements = DRAWER_PLACEMENTS.end;
+  @property({ type: String, reflect: true })
+  placement: DrawerPlacements = DRAWER_PLACEMENTS.end;
 
   /** The drawer label. Required for proper accessibility. Alternatively, the label slot can be used. */
-  @property({ type: String }) label: string;
+  @property({ type: String })
+  label: string;
+
+  /** @internal */
+  @query('#main')
+  drawer: HTMLElement;
+
+  /** @internal */
+  @query('#panel')
+  panel: HTMLElement;
+
+  /** @internal */
+  @query('#overlay')
+  overlay: HTMLElement;
 
   @watch('open', { waitUntilFirstUpdate: true })
   async handleOpenChange() {
@@ -119,6 +121,8 @@ export default class ArcDrawer extends LitElement {
       emit(this, ARC_EVENTS.afterHide);
     }
   }
+
+  static styles = styles;
 
   connectedCallback() {
     super.connectedCallback();

@@ -12,22 +12,21 @@ import type ArcMenuItem from '../menu-item/ArcMenuItem.js';
  * @event arc-select - Emitted when a menu item is selected.
  */
 export default class ArcMenu extends LitElement {
-  /** @internal */
-  static tag = 'arc-menu';
-
-  static styles = styles;
-
-  /** @internal */
-  @query('#menu') menu: HTMLElement;
-
-  /** @internal */
-  @query('slot') defaultSlot: HTMLSlotElement;
-
   /** @internal - String used to select a menu-item while typing. */
   private typeToSelectString = '';
 
   /** @internal - Timeout used to wait before clearing the typeToSelectString. */
   private typeToSelectTimeout: number;
+
+  /** @internal */
+  @query('#menu')
+  menu: HTMLElement;
+
+  /** @internal */
+  @query('slot')
+  defaultSlot: HTMLSlotElement;
+
+  static styles = styles;
 
   getAllItems(options: { includeDisabled: boolean } = { includeDisabled: true }) {
     const { includeDisabled } = options;

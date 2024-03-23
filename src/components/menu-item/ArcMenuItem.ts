@@ -10,24 +10,23 @@ import styles from './arc-menu-item.styles.js';
  * @slot suffix - Used to append an icon or similar element to the menu-item.
  */
 export default class ArcMenuItem extends LitElement {
-  /** @internal */
-  static tag = 'arc-menu-item';
-
   static styles = styles;
 
   /** A unique value to store in the menu item. This can be used as a way to identify menu items when selected. */
-  @property({ type: String }) value: string;
+  @property({ type: String })
+  value: string;
 
   /** Draws the menu item in a disabled state. */
-  @property({ type: Boolean, reflect: true }) disabled: boolean = false;
-
-  firstUpdated() {
-    this.setAttribute('role', 'menuitem');
-  }
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean = false;
 
   @watch('disabled')
   handleDisabledChange() {
     this.setAttribute('aria-disabled', String(this.disabled));
+  }
+
+  firstUpdated() {
+    this.setAttribute('role', 'menuitem');
   }
 
   protected render() {

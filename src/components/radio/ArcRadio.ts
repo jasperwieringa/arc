@@ -15,14 +15,6 @@ import styles from './arc-radio.styles.js';
  * @event arc-change - Emitted when the control's checked state changes.
  */
 export default class ArcRadio extends LitElement {
-  /** @internal */
-  static tag = 'arc-radio';
-
-  static styles = styles;
-
-  /** @internal */
-  @query('input[type="radio"]') input: HTMLInputElement;
-
   /** @internal - Controller used to recognize form controls located inside a shadow root. */
   /* @ts-expect-error - Controller used to hook the component to the formData */
   private readonly formController = new FormController(this, {
@@ -51,6 +43,12 @@ export default class ArcRadio extends LitElement {
    */
   @property({ type: Boolean, reflect: true })
   invalid = false;
+
+  /** @internal */
+  @query('input[type="radio"]')
+  input: HTMLInputElement;
+
+  static styles = styles;
 
   firstUpdated() {
     this.updateComplete.then(() => {
@@ -186,7 +184,7 @@ export default class ArcRadio extends LitElement {
         <input
           type="radio"
           name=${ifDefined(this.name || undefined)}
-          .value=${ifDefined(this.value || undefined)}
+          value=${ifDefined(this.value || undefined)}
           .checked=${live(this.checked)}
           .disabled=${this.disabled}
           aria-checked=${this.checked ? 'true' : 'false'}

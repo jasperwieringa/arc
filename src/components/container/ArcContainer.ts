@@ -19,25 +19,24 @@ import '../icon-button/arc-icon-button.js';
  * @slot bottom - The container's bottom bar.
  */
 export default class ArcContainer extends LitElement {
-  /** @internal */
-  static tag = 'arc-container';
-
-  static styles = styles;
-
-  /** @internal */
-  @query('#main') container: HTMLElement;
-
-  /** @internal */
-  @query('#accessibility') accessibility: ArcAccessibility;
-
   /** @internal - Reference to the preferred theme set by the app. */
   private _appPreferredTheme: ContainerTheme;
 
   /** Set the starting theme for the container. Once loaded, the built-in accessibility will be responsible for this property. */
-  @property({ type: String, reflect: true }) theme: ContainerTheme = CONTAINER_THEMES.auto;
+  @property({ type: String, reflect: true })
+  theme: ContainerTheme = CONTAINER_THEMES.auto;
 
   /** Set the container to fullscreen mode. This hides the padding, margin and gap values. */
-  @property({ type: Boolean }) fullscreen: boolean = false;
+  @property({ type: Boolean })
+  fullscreen: boolean = false;
+
+  /** @internal */
+  @query('#main')
+  container: HTMLElement;
+
+  /** @internal */
+  @query('#accessibility')
+  accessibility: ArcAccessibility;
 
   @watch('theme')
   handleThemeChange() {
@@ -46,6 +45,8 @@ export default class ArcContainer extends LitElement {
       this.theme = this.getTheme();
     }
   }
+
+  static styles = styles;
 
   /* Listen to keyboard input on the page */
   connectedCallback() {

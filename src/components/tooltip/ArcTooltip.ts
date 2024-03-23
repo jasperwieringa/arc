@@ -29,20 +29,6 @@ import styles from './arc-tooltip.styles.js';
  */
 export default class ArcTooltip extends LitElement {
   /** @internal */
-  static tag = 'arc-tooltip';
-
-  static styles = styles;
-
-  /** @internal */
-  @query('#positioner') positioner: HTMLElement;
-
-  /** @internal */
-  @query('#tooltip') tooltip: HTMLElement;
-
-  /** @internal */
-  @query('#arrow') arrow: HTMLElement;
-
-  /** @internal */
   private _target: HTMLElement;
 
   /** @internal - Timeout until the hover hides. */
@@ -52,19 +38,23 @@ export default class ArcTooltip extends LitElement {
   private _positionerCleanup: ReturnType<typeof autoUpdate> | undefined;
 
   /** The tooltip's content. Alternatively, you can use the content slot. */
-  @property({ type: String }) content: string;
+  @property({ type: String })
+  content: string;
 
   /**
    * The preferred placement of the tooltip. Note that the actual placement may vary as needed to keep the tooltip
    * inside the viewport.
    */
-  @property({ type: String }) placement: Placement = FLOATING_PLACEMENTS.top;
+  @property({ type: String })
+  placement: Placement = FLOATING_PLACEMENTS.top;
 
   /** The distance in pixels from which to offset the tooltip away from its target. */
-  @property({ type: Number }) distance: number = 10;
+  @property({ type: Number })
+  distance: number = 10;
 
   /** The distance in pixels from which to offset the tooltip along its target. */
-  @property({ type: Number }) skidding: number = 0;
+  @property({ type: Number })
+  skidding: number = 0;
 
   /** Set the delay in ms before showing the tooltip. */
   @property({
@@ -78,16 +68,32 @@ export default class ArcTooltip extends LitElement {
    * options can be passed by separating them with a space. When manual is used, the tooltip must be activated
    * programmatically.
    */
-  @property({ type: String }) trigger: string = 'hover focus';
+  @property({ type: String })
+  trigger: string = 'hover focus';
 
   /** Indicates whether the tooltip is open. This can be used instead of the show/hide methods. */
-  @property({ type: Boolean, reflect: true }) open: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  open: boolean = false;
 
   /** Disables the tooltip so the tooltip will not be displayed. */
-  @property({ type: Boolean, reflect: true }) disabled: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean = false;
 
   /** Enable this option to prevent the tooltip from being clipped when the component is placed inside a container with overflow: auto|hidden|scroll. */
-  @property({ type: Boolean, reflect: true }) hoist: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  hoist: boolean = false;
+
+  /** @internal */
+  @query('#positioner')
+  positioner: HTMLElement;
+
+  /** @internal */
+  @query('#tooltip')
+  tooltip: HTMLElement;
+
+  /** @internal */
+  @query('#arrow')
+  arrow: HTMLElement;
 
   @watch('open', { waitUntilFirstUpdate: true })
   async handlePropChange() {
@@ -135,6 +141,8 @@ export default class ArcTooltip extends LitElement {
       this.hide();
     }
   }
+
+  static styles = styles;
 
   connectedCallback() {
     super.connectedCallback();

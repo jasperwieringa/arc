@@ -15,19 +15,19 @@ import '../icon/arc-icon.js';
  * @slot avatar - Used to prepend an avatar element to the chip.
  */
 export default class ArcChip extends LitElement {
-  /** @internal */
-  static tag = 'arc-chip';
-
-  static styles = styles;
-
   /** @internal - Controller that listens to slot changes within the component. */
   private readonly hasSlotController = new HasSlotController(this, 'avatar');
 
-  @property({ type: String, reflect: true }) size: InputSize = INPUT_SIZES.small;
+  @property({ type: String, reflect: true })
+  size: InputSize = INPUT_SIZES.small;
 
-  @property({ type: String, reflect: true }) type: ChipType = CHIP_TYPES.filled;
+  @property({ type: String, reflect: true })
+  type: ChipType = CHIP_TYPES.filled;
 
-  @property({ type: Boolean, reflect: true }) clearable: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  clearable: boolean = false;
+
+  static styles = styles;
 
   _handleClear() {
     emit(this, ARC_EVENTS.clear);

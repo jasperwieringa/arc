@@ -15,38 +15,40 @@ import styles from './arc-switch.styles.js';
  * @event arc-change - Emitted when the control's checked state changes.
  */
 export default class ArcSwitch extends LitElement {
-  /** @internal */
-  static tag = 'arc-switch';
-
-  static styles = styles;
-
-  /** @internal */
-  @query('input[type="checkbox"]') input: HTMLInputElement;
-
   /** @internal - Controller used to recognize form controls located inside a shadow root. */
   /* @ts-expect-error - Controller used to hook the component to the formData */
   private readonly formController = new FormController(this, {
     value: (control: ArcSwitch) => (control.checked ? control.value : undefined),
   });
-
+  
   /** The name used to reference the value of the control. */
-  @property({ type: String }) name: string;
-
+  @property({ type: String })
+  name: string;
+  
   /** The value attribute of the checkbox. */
-  @property({ type: String }) value: string;
-
+  @property({ type: String })
+  value: string;
+  
   /** Draws the component in a disabled state. */
-  @property({ type: Boolean, reflect: true }) disabled: boolean = false;
-
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean = false;
+  
   /** Makes the switch a required field. */
-  @property({ type: Boolean, reflect: true }) required = false;
-
+  @property({ type: Boolean, reflect: true })
+  required = false;
+  
   /** Draws the component in a checked state. */
-  @property({ type: Boolean, reflect: true }) checked: boolean = false;
-
+  @property({ type: Boolean, reflect: true })
+  checked: boolean = false;
+  
   /** This will be true when the control is in an invalid state. Validity is determined by the `required` prop. */
-  @property({ type: Boolean, reflect: true }) invalid = false;
-
+  @property({ type: Boolean, reflect: true })
+  invalid = false;
+  
+  /** @internal */
+  @query('input[type="checkbox"]')
+  input: HTMLInputElement;
+  
   /* Enable/disable the editor when the disabled property changes */
   @watch('disabled', { waitUntilFirstUpdate: true })
   handleDisabledChange() {
@@ -60,6 +62,8 @@ export default class ArcSwitch extends LitElement {
     this.input.checked = this.checked;
     this.invalid = !this.input.checkValidity();
   }
+
+  static styles = styles;
 
   firstUpdated() {
     this.invalid = !this.input.checkValidity();

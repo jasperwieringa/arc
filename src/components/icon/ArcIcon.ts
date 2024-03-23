@@ -12,22 +12,23 @@ import styles from './arc-icon.styles.js';
  * @cssproperty --icon-color-secondary - Set the secondary color of the icon (if supported).
  */
 export default class ArcIcon extends LitElement {
-  /** @internal */
-  static tag = 'arc-icon';
-
-  static styles = styles;
-
   /** The name of the icon to draw. */
-  @property({ type: String, reflect: true }) name: IconType = ICON_TYPES.fire;
+  @property({ type: String, reflect: true })
+  name: IconType = ICON_TYPES.fire;
 
   /** An alternate description to use for accessibility. If omitted, the icon will be ignored by assistive devices. */
-  @property({ type: String }) label: string;
+  @property({ type: String })
+  label: string;
 
   /** Set the size of the icon. */
-  @property({ type: String, reflect: true }) size: FontSize = FONT_SIZES.medium;
+  @property({ type: String, reflect: true })
+  size: FontSize = FONT_SIZES.medium;
 
   /** Set the rotation of the icon. */
-  @property({ type: Number }) rotation: 0 | 90 | 180 | 270 = 0;
+  @property({ type: Number })
+  rotation: 0 | 90 | 180 | 270 = 0;
+
+  static styles = styles;
 
   protected render() {
     const DEFAULT_PATH: string = `${getBasePath()}/assets/icons.svg`;

@@ -27,19 +27,16 @@ import styles from './arc-card.styles.js';
  * @event arc-after-hide - Emitted after the card collapses and all animations are complete.
  */
 export default class ArcCard extends LitElement {
-  /** @internal */
-  static tag = 'arc-card';
-
-  static styles = styles;
-
-  /** @internal */
-  @query('#content') content: HTMLElement;
-
   /** @internal - Controller that listens to slot changes within the component. */
   private readonly hasSlotController = new HasSlotController(this, 'header', 'image', '[default]', 'footer');
 
   /** Indicates whether the card is collapsed. This can be used instead of the expand/collapse methods. Ignored when the `header` slot is not filled. */
-  @property({ type: Boolean, reflect: true }) collapsed: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  collapsed: boolean = false;
+
+  /** @internal */
+  @query('#content')
+  content: HTMLElement;
 
   @watch('collapsed', { waitUntilFirstUpdate: true })
   async handleCollapsedChange() {
@@ -74,6 +71,8 @@ export default class ArcCard extends LitElement {
       emit(this, ARC_EVENTS.afterHide);
     }
   }
+
+  static styles = styles;
 
   firstUpdated() {
     if (!this.hasSlotController.test('header')) {

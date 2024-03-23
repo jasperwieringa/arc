@@ -10,20 +10,20 @@ import type ArcRadio from '../radio/ArcRadio.js';
  * @event arc-change - Emitted when a control's checked state changes.
  */
 export default class ArcRadioGroup extends LitElement {
+  /** The radio group label. Required for proper accessibility. Alternatively, the label slot can be used. */
+  @property({ type: String })
+  label: string;
+  
+  /** Lays out the radio buttons horizontally. */
+  @property({ type: Boolean })
+  row: boolean = false;
+  
   /** @internal */
-  static tag = 'arc-radio-group';
+  @query('slot:not([name])')
+  defaultSlot: HTMLSlotElement;
 
   static styles = styles;
-
-  /** @internal */
-  @query('slot:not([name])') defaultSlot: HTMLSlotElement;
-
-  /** The radio group label. Required for proper accessibility. Alternatively, the label slot can be used. */
-  @property({ type: String }) label: string;
-
-  /** Lays out the radio buttons horizontally. */
-  @property({ type: Boolean }) row: boolean = false;
-
+  
   /* When tabbing into the fieldset, make sure it lands on the checked radio */
   handleFocusIn() {
     const slottedChildren = this.defaultSlot.assignedElements({ flatten: true });

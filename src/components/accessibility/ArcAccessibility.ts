@@ -43,11 +43,6 @@ export declare type UserPreferences =
  * @event arc-accessibility-change - Emitted when the user preferences change.
  */
 export default class ArcAccessibility extends LitElement {
-  /** @internal */
-  static tag = 'arc-accessibility';
-
-  static styles = styles;
-
   /** @internal - Reference to css variables that are scoped to :root. */
   private _rootCssVariables: { [key: string]: string } = {};
 
@@ -69,18 +64,20 @@ export default class ArcAccessibility extends LitElement {
     letterSpacing: Object.values(FONT_SPACING),
   };
 
-  /** @internal - State that stores the user preferences. */
-  @state()
-  private _userPreferences: UserPreferences = this._defaultPreferences;
+  private _localeStoreRef = 'arc-accessibility';
 
   /** Indicates whether the drawer is open. This can be used instead of the show/hide methods. */
   @property({ type: Boolean, reflect: true })
   open: boolean = false;
 
+  /** @internal - State that stores the user preferences. */
+  @state()
+  private _userPreferences: UserPreferences = this._defaultPreferences;
+
   @watch('_userPreferences')
   async handlePreferenceChange() {
     /* Store the new preferences in the localStore */
-    localStorage.setItem(ArcAccessibility.tag, stringifyObject(this._userPreferences));
+    localStorage.setItem(this._localeStoreRef, stringifyObject(this._userPreferences));
 
     /* Update the :root values */
     Object.keys(this._userPreferences).forEach((key: keyof UserPreferences) =>
@@ -94,6 +91,8 @@ export default class ArcAccessibility extends LitElement {
     });
   }
 
+  static styles = styles;
+
   connectedCallback() {
     super.connectedCallback();
 
@@ -101,7 +100,7 @@ export default class ArcAccessibility extends LitElement {
     Object.keys(this._defaultPreferences).forEach((key: keyof UserPreferences) => this.storeRootValues(key));
 
     /* Check for cached preferences in the localStore and update the state. */
-    const cachedPreferences = localStorage.getItem(ArcAccessibility.tag);
+    const cachedPreferences = localStorage.getItem(this._localeStoreRef);
     if (cachedPreferences) {
       /* Update the state of the user preferences */
       this._userPreferences = parseObject(cachedPreferences);

@@ -21,19 +21,17 @@ import '../icon-button/arc-icon-button.js';
  * @cssproperty --sidebar-width - Set the width of the sidebar.
  */
 export default class ArcSidebar extends LitElement {
-  /** @internal */
-  static tag = 'arc-sidebar';
-
-  static styles = styles;
-
-  /** @internal */
-  @query('#content') content: HTMLElement;
-
   /** Indicates whether the sidebar is open. This can be used instead of the show/hide methods. */
-  @property({ type: Boolean, reflect: true }) open: boolean = true;
-
+  @property({ type: Boolean, reflect: true })
+  open: boolean = true;
+  
   /** The sidebar label. Required for proper accessibility. Alternatively, the label slot can be used. */
-  @property({ type: String }) label: string;
+  @property({ type: String })
+  label: string;
+
+  /** @internal */
+  @query('#content')
+  content: HTMLElement;
 
   @watch('open', { waitUntilFirstUpdate: true })
   async handleOpenChange() {
@@ -49,6 +47,8 @@ export default class ArcSidebar extends LitElement {
       emit(this, ARC_EVENTS.afterHide);
     }
   }
+
+  static styles = styles;
 
   /* Shows the sidebar. */
   show() {

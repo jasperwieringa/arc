@@ -25,28 +25,17 @@ import '../menu-item/arc-menu-item.js';
  * @cssproperty --logo-height - Set the height of the tool logo.
  */
 export default class ArcNavbar extends LitElement {
-  /** @internal */
-  static tag = 'arc-navbar';
-
-  static styles = styles;
-
-  /** @internal */
-  @query('#tabSlot') tabSlot: HTMLSlotElement;
-
-  /** @internal - State that tracks whether a dropdown component should be visible. */
-  @state() private showDropdown: boolean = false;
-
-  /** @internal - State that keeps track of the current (slotted) tabs. */
-  @state() private navTabs: (ArcButton | ArcIconButton)[] = [];
-
   /** When set, the underlying logoWrapper will be rendered as an anchor with this property. */
-  @property({ type: String }) home: string;
+  @property({ type: String })
+  home: string;
 
   /** The url for the logo of the application. */
-  @property({ type: String }) logo: string;
+  @property({ type: String })
+  logo: string;
 
   /** The amount of tabs allowed before collapsing into a dropdown. */
-  @property({ type: Number, reflect: true }) tabs: number = 5;
+  @property({ type: Number, reflect: true })
+  tabs: number = 5;
 
   /** Show/hide the Arup logo. Can be useful for non-Arup applications. */
   @property({
@@ -55,11 +44,24 @@ export default class ArcNavbar extends LitElement {
     converter: (attrValue: string | null) => (attrValue ? attrValue !== 'false' : true),
   })
   arup: boolean = true;
+  
+  /** @internal - State that tracks whether a dropdown component should be visible. */
+  @state()
+  private showDropdown: boolean = false;
+  
+  /** @internal - State that keeps track of the current (slotted) tabs. */
+  @state()
+  private navTabs: (ArcButton | ArcIconButton)[] = [];
+  
+  /** @internal */
+  @query('#tabSlot') tabSlot: HTMLSlotElement;
 
   @watch('tabs', { waitUntilFirstUpdate: true })
   handleTabCountChange() {
     this._updateTemplate();
   }
+
+  static styles = styles;
 
   /* Whenever a new arc-button or arc-icon-button gets added to the default slot. */
   private _handleTabChange(e: any) {

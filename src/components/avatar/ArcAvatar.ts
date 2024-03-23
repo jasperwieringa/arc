@@ -13,19 +13,13 @@ import '../icon/arc-icon.js';
  * @cssproperty --size - The size of the avatar.
  */
 export default class ArcAvatar extends LitElement {
-  /** @internal */
-  static tag = 'arc-avatar';
-
-  static styles = styles;
-
-  /** @internal - State that keeps track whether the given image failed to load. */
-  @state() private _hasError: boolean = false;
-
   /** The image source to use for the avatar. */
-  @property({ type: String }) image: string;
+  @property({ type: String })
+  image: string;
 
   /** A label to describe the avatar to assistive devices. */
-  @property({ type: String }) label: string;
+  @property({ type: String })
+  label: string;
 
   /** Name to use as a fallback when no image is available. */
   @property({
@@ -34,10 +28,16 @@ export default class ArcAvatar extends LitElement {
   })
   name: string;
 
+  /** @internal - State that keeps track whether the given image failed to load. */
+  @state()
+  private _hasError: boolean = false;
+
   @watch('image')
   handleImageChange() {
     this._hasError = false;
   }
+
+  static styles = styles;
 
   protected render() {
     return html`

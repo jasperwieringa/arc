@@ -16,37 +16,43 @@ import '../spinner/arc-spinner.js';
  * @cssproperty --icon-color - Overwrite the color of the icon.
  */
 export default class ArcIconButton extends LitElement {
-  /** @internal */
-  static tag = 'arc-icon-button';
-
-  static styles = styles;
-
-  /** @internal */
-  @query('#main') button: HTMLButtonElement | HTMLLinkElement;
-
   /** The name of the icon to draw. */
-  @property({ type: String }) name: IconType;
+  @property({ type: String })
+  name: IconType;
 
   /** When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`. */
-  @property({ type: String }) href: string;
+  @property({ type: String })
+  href: string;
 
   /** Tells the browser where to open the link. Only used when `href` is set. */
-  @property({ type: String }) target: ButtonTarget;
+  @property({ type: String })
+  target: ButtonTarget;
 
   /** Tells the browser to download the linked file as this filename. Only used when `href` is set. */
-  @property({ type: String }) download: string;
+  @property({ type: String })
+  download: string;
 
   /** A description that gets read by screen readers and other assistive devices. For optimal accessibility, you should always include a label that describes what the icon button does. */
-  @property({ type: String }) label: string = '';
+  @property({ type: String })
+  label: string = '';
 
   /** Draws the button in an active state. */
-  @property({ type: Boolean, reflect: true }) active: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  active: boolean = false;
 
   /** Draws the button in a disabled state. */
-  @property({ type: Boolean, reflect: true }) disabled: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean = false;
 
   /** Draws the button in a loading state. */
-  @property({ type: Boolean, reflect: true }) loading: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  loading: boolean = false;
+
+  /** @internal */
+  @query('#main')
+  button: HTMLButtonElement | HTMLLinkElement;
+
+  static styles = styles;
 
   /* Simulates a click on the button. */
   click() {

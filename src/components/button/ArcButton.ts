@@ -20,52 +20,62 @@ import '../spinner/arc-spinner.js';
  * @cssproperty --btn-background - Overwrite the background color of the button.
  */
 export default class ArcButton extends LitElement {
-  /** @internal */
-  static tag = 'arc-button';
-
-  static styles = styles;
-
-  /** @internal */
-  @query('#main') button: HTMLButtonElement | HTMLLinkElement;
-
   /** @internal - Controller used to recognize form controls located inside a shadow root. */
   private readonly formController = new FormController(this);
 
   /** Set the color of the button. */
-  @property({ type: String, reflect: true }) color: ThemePalette = THEME_PALETTE.primary;
+  @property({ type: String, reflect: true })
+  color: ThemePalette = THEME_PALETTE.primary;
 
   /** Set the size of the button. */
-  @property({ type: String, reflect: true }) size: InputSize = INPUT_SIZES.medium;
+  @property({ type: String, reflect: true })
+  size: InputSize = INPUT_SIZES.medium;
 
   /** Set the type of the button. */
-  @property({ type: String, reflect: true }) type: ButtonType = BUTTON_TYPES.filled;
+  @property({ type: String, reflect: true })
+  type: ButtonType = BUTTON_TYPES.filled;
 
   /** An optional name for the button. Ignored when `href` is set. */
-  @property({ type: String }) name: string;
+  @property({ type: String })
+  name: string;
 
   /** An optional value for the button. Ignored when `href` is set. */
-  @property({ type: String }) value: string;
+  @property({ type: String })
+  value: string;
 
   /** When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`. */
-  @property({ type: String }) href: string;
+  @property({ type: String })
+  href: string;
 
   /** Tells the browser where to open the link. Only used when `href` is set. */
-  @property({ type: String }) target: ButtonTarget;
+  @property({ type: String })
+  target: ButtonTarget;
 
   /** Tells the browser to download the linked file as this filename. Only used when `href` is set. */
-  @property({ type: String }) download: string;
+  @property({ type: String })
+  download: string;
 
   /** Draws the button in an active state. */
-  @property({ type: Boolean, reflect: true }) active: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  active: boolean = false;
 
   /** Draws the button in a disabled state. */
-  @property({ type: Boolean, reflect: true }) disabled: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean = false;
 
   /** Draws the button in a loading state. */
-  @property({ type: Boolean, reflect: true }) loading: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  loading: boolean = false;
 
   /** Indicates if activating the button should submit the form. Ignored when href is set. */
-  @property({ type: Boolean, reflect: true }) submit: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  submit: boolean = false;
+
+  /** @internal */
+  @query('#main')
+  button: HTMLButtonElement | HTMLLinkElement;
+
+  static styles = styles;
 
   /* Simulates a click on the button. */
   click() {
