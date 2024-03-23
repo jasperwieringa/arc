@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { ARC_EVENTS } from '../../internal/constants/eventConstants.js';
 import type ArcMenu from './ArcMenu.js';
@@ -16,7 +16,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ArcMenu> = () => html`
+const Template: StoryFn<ArcMenu> = () => html`
   <arc-menu>
     <arc-menu-item value="home">
       <arc-icon name="home" slot="prefix"></arc-icon>

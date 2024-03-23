@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { INPUT_SIZES, THEME_PALETTE } from '../../internal/constants/styleConstants.js';
@@ -25,7 +25,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ArcButton> = ({
+const Template: StoryFn<ArcButton> = ({
   color,
   size,
   type,
@@ -55,7 +55,7 @@ const Template: Story<ArcButton> = ({
     >Button</arc-button
   >
 `;
-const WidthTemplate: Story<ArcButton> = () => html`<arc-button style="width: 10rem;">Button</arc-button>`;
+const WidthTemplate: StoryFn<ArcButton> = () => html`<arc-button style="width: 10rem;">Button</arc-button>`;
 
 const defaultArgs = {
   color: THEME_PALETTE.primary,
@@ -112,7 +112,7 @@ export const LinkNewWindow = Template.bind({});
 LinkNewWindow.args = { ...Link.args, target: '_blank' };
 
 export const LinkDownload = Template.bind({});
-LinkDownload.args = { ...Link.args, download: 'ARC Storybook' };
+LinkDownload.args = { ...Link.args, download: 'ARC StoryFnbook' };
 
 export const LinkDisabled = Template.bind({});
 LinkDisabled.args = { ...Link.args, disabled: true };

@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { ARC_EVENTS } from '../../internal/constants/eventConstants.js';
@@ -29,7 +29,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story = ({ customLabel, open }) => html`
+const Template: StoryFn = ({ customLabel, open }) => html`
   <arc-container>
     <arc-navbar slot="nav" logo="/arc-red.svg"></arc-navbar>
     <arc-sidebar slot="side" label=${ifDefined(customLabel || undefined)} ?open=${open}>

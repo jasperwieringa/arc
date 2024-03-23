@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { INPUT_SIZES } from '../../internal/constants/styleConstants.js';
 import { CHIP_TYPES } from './constants/ChipConstants.js';
@@ -20,11 +20,11 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ArcChip> = ({ size, type, clearable }) => html`
+const Template: StoryFn<ArcChip> = ({ size, type, clearable }) => html`
   <arc-chip size=${size} type=${type} ?clearable=${clearable}>Chip</arc-chip>
 `;
 
-const AvatarTemplate: Story<ArcChip> = ({ size, type, clearable }) => html`
+const AvatarTemplate: StoryFn<ArcChip> = ({ size, type, clearable }) => html`
   <arc-chip size=${size} type=${type} ?clearable=${clearable}>
     <arc-avatar slot="avatar" name="User Name"></arc-avatar>
     Chip

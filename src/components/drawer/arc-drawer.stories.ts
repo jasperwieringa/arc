@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { DRAWER_PLACEMENTS } from './constants/DrawerConstants.js';
@@ -36,7 +36,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story = ({ open, contained, placement, customLabel }) => html`
+const Template: StoryFn = ({ open, contained, placement, customLabel }) => html`
   <div class="wrapper">
     <arc-drawer
       ?open=${open}
@@ -60,7 +60,7 @@ const Template: Story = ({ open, contained, placement, customLabel }) => html`
     }
   </style>
 `;
-const SizeTemplate: Story = () => html`
+const SizeTemplate: StoryFn = () => html`
   <div class="wrapper">
     <arc-drawer label="Drawer" open contained style="--size: 50vw;">
       This drawer is always 50% of the viewport.
@@ -75,7 +75,7 @@ const SizeTemplate: Story = () => html`
     }
   </style>
 `;
-const LockedTemplate: Story = ({ open, contained, placement, customLabel }) => html`
+const LockedTemplate: StoryFn = ({ open, contained, placement, customLabel }) => html`
   <div class="wrapper">
     <arc-drawer
       ?open=${open}

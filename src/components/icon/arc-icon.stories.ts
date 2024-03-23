@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { ICON_TYPES } from './constants/IconConstants.js';
@@ -21,7 +21,7 @@ export default {
   },
 } as Meta;
 
-const AllTemplate: Story = () =>
+const AllTemplate: StoryFn = () =>
   html`
     <p>This is a list of all the available icons within the component library.</p>
     <p>Click on an icon to copy the code to your clipboard!</p>
@@ -56,7 +56,7 @@ const AllTemplate: Story = () =>
     </script>
   `;
 
-const Template: Story<ArcIcon> = ({ name, label, size, rotation }) => html`
+const Template: StoryFn<ArcIcon> = ({ name, label, size, rotation }) => html`
   <arc-icon
     name="${name}"
     label=${ifDefined(label || undefined)}
@@ -65,7 +65,7 @@ const Template: Story<ArcIcon> = ({ name, label, size, rotation }) => html`
   ></arc-icon>
 `;
 
-const ColorTemplate: Story<ArcIcon> = () => html`
+const ColorTemplate: StoryFn<ArcIcon> = () => html`
   <div style="display: flex;">
     <arc-icon size="large" style="color: rgb(var(--arc-red-060))"></arc-icon>
     <arc-icon size="large" style="color: rgb(var(--arc-blue-060))"></arc-icon>

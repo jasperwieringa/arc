@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { when } from 'lit/directives/when.js';
 import { CONTAINER_THEMES } from './constants/ContainerConstants.js';
@@ -19,7 +19,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ArcContainer> = ({ theme, fullscreen }) => html`
+const Template: StoryFn<ArcContainer> = ({ theme, fullscreen }) => html`
   <arc-container theme="${theme}" ?fullscreen="${fullscreen}">
     <arc-navbar slot="nav" logo="/arc-red.svg">
       <span slot="name">WebComponents</span>

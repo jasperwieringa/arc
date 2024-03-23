@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import type ArcBottombar from './ArcBottombar.js';
 import './arc-bottombar.js';
@@ -9,7 +9,7 @@ export default {
   component: 'arc-bottombar',
 } as Meta;
 
-const Template: Story<ArcBottombar> = () => html`
+const Template: StoryFn<ArcBottombar> = () => html`
   <arc-bottombar class="bottom-bar">
     <arc-icon-button name="home" label="Back to home">Home</arc-icon-button>
     <arc-icon-button name="menu" label="Change settings">More</arc-icon-button>
@@ -21,7 +21,7 @@ const Template: Story<ArcBottombar> = () => html`
     }
   </style>
 `;
-const HeightTemplate: Story<ArcBottombar> = () => html`
+const HeightTemplate: StoryFn<ArcBottombar> = () => html`
   <arc-bottombar class="bottom-bar" style="height: 8rem;">
     <arc-icon-button name="home" label="Back to home">Home</arc-icon-button>
     <arc-icon-button name="menu" label="Change settings">More</arc-icon-button>

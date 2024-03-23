@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { ARC_EVENTS } from '../../internal/constants/eventConstants.js';
@@ -16,7 +16,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ArcCard> = ({ collapsed }) => html`
+const Template: StoryFn<ArcCard> = ({ collapsed }) => html`
   <arc-card class="card" ?collapsed=${ifDefined(collapsed || undefined)}>
     <div slot="header">
       <strong>Header</strong>
@@ -40,7 +40,7 @@ const Template: Story<ArcCard> = ({ collapsed }) => html`
   </style>
 `;
 
-const BasicTemplate: Story<ArcCard> = ({ collapsed }) => html`
+const BasicTemplate: StoryFn<ArcCard> = ({ collapsed }) => html`
   <arc-card class="card" ?collapsed=${ifDefined(collapsed || undefined)}>
     This is just a basic card. No image, no header, no footer, just content.
   </arc-card>
@@ -51,7 +51,7 @@ const BasicTemplate: Story<ArcCard> = ({ collapsed }) => html`
   </style>
 `;
 
-const HeaderTemplate: Story<ArcCard> = ({ collapsed }) => html`
+const HeaderTemplate: StoryFn<ArcCard> = ({ collapsed }) => html`
   <arc-card class="card" ?collapsed=${ifDefined(collapsed || undefined)}>
     <div slot="header">
       <strong>Header</strong>
@@ -66,7 +66,7 @@ const HeaderTemplate: Story<ArcCard> = ({ collapsed }) => html`
   </style>
 `;
 
-const FooterTemplate: Story<ArcCard> = ({ collapsed }) => html`
+const FooterTemplate: StoryFn<ArcCard> = ({ collapsed }) => html`
   <arc-card class="card" ?collapsed=${ifDefined(collapsed || undefined)}>
     This card has a footer. You can put all sorts of things in it!
     <div slot="footer">
@@ -80,7 +80,7 @@ const FooterTemplate: Story<ArcCard> = ({ collapsed }) => html`
   </style>
 `;
 
-const ImageTemplate: Story<ArcCard> = ({ collapsed }) => html`
+const ImageTemplate: StoryFn<ArcCard> = ({ collapsed }) => html`
   <arc-card class="card" ?collapsed=${collapsed}>
     <arc-image
       slot="image"

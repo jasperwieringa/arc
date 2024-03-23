@@ -30,22 +30,27 @@ export default class ArcRadio extends LitElement {
   });
 
   /** The name used to reference the value of the control. */
-  @property({ type: String }) name: string;
+  @property({ type: String })
+  name: string;
 
   /** The value attribute of the radio. */
-  @property({ type: String }) value: string;
+  @property({ type: String })
+  value: string;
 
   /** Draws the component in a disabled state. */
-  @property({ type: Boolean, reflect: true }) disabled: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean = false;
 
   /** Draws the component in a checked state. */
-  @property({ type: Boolean, reflect: true }) checked: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  checked: boolean = false;
 
   /**
    * This will be true when the control is in an invalid state. Validity in radios is determined by the message provided
    * by the `setCustomValidity` method.
    */
-  @property({ type: Boolean, reflect: true }) invalid = false;
+  @property({ type: Boolean, reflect: true })
+  invalid = false;
 
   firstUpdated() {
     this.updateComplete.then(() => {

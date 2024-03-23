@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import type ArcAvatar from './ArcAvatar.js';
@@ -9,7 +9,7 @@ export default {
   component: 'arc-avatar',
 } as Meta;
 
-const Template: Story<ArcAvatar> = ({ name, image, label }) => html`
+const Template: StoryFn<ArcAvatar> = ({ name, image, label }) => html`
   <arc-avatar
     name=${ifDefined(name || undefined)}
     image=${ifDefined(image || undefined)}
@@ -17,7 +17,7 @@ const Template: Story<ArcAvatar> = ({ name, image, label }) => html`
   ></arc-avatar>
 `;
 
-const GroupTemplate: Story<ArcAvatar> = () => html`
+const GroupTemplate: StoryFn<ArcAvatar> = () => html`
   <div class="avatar-group">
     <arc-avatar image="https://picsum.photos/200" label="First avatar in avatar group."></arc-avatar>
 

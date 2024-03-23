@@ -44,25 +44,32 @@ export default class ArcDropdown extends LitElement {
   private _positionerCleanup: ReturnType<typeof autoUpdate> | undefined;
 
   /** The preferred placement of the dropdown panel. */
-  @property({ type: String }) placement: Placement = FLOATING_PLACEMENTS['bottom-start'];
+  @property({ type: String })
+  placement: Placement = FLOATING_PLACEMENTS['bottom-start'];
 
   /** The dropdown will close when the user interacts outside of this element (e.g. clicking). */
-  @property({ attribute: false }) containingElement?: HTMLElement;
+  @property({ attribute: false })
+  containingElement?: HTMLElement;
 
   /** The distance in pixels from which to offset the panel away from its trigger. */
-  @property({ type: Number }) distance: number = 0;
+  @property({ type: Number })
+  distance: number = 0;
 
   /** The distance in pixels from which to offset the panel along its trigger. */
-  @property({ type: Number }) skidding: number = 0;
+  @property({ type: Number })
+  skidding: number = 0;
 
   /** Indicates whether the dropdown is open. This can be used instead of the show/hide methods. */
-  @property({ type: Boolean, reflect: true }) open: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  open: boolean = false;
 
   /** Disables the dropdown so the panel will not open. */
-  @property({ type: Boolean, reflect: true }) disabled: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean = false;
 
   /** Enable this option to prevent the panel from being clipped when the component is placed inside a container with overflow: auto|hidden|scroll. */
-  @property({ type: Boolean, reflect: true }) hoist: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  hoist: boolean = false;
 
   @watch('open', { waitUntilFirstUpdate: true })
   async handleOpenChange() {

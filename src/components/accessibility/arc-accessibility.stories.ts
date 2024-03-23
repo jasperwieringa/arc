@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { ARC_EVENTS } from '../../internal/constants/eventConstants.js';
 import type ArcAccessibility from './ArcAccessibility.js';
@@ -15,7 +15,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ArcAccessibility> = () => html`
+const Template: StoryFn<ArcAccessibility> = () => html`
   <arc-container>
     <arc-navbar slot="nav"></arc-navbar>
     <div style="padding: var(--arc-spacing-normal)">

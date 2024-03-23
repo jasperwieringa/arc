@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { ICON_TYPES } from '../icon/constants/IconConstants.js';
@@ -16,7 +16,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ArcIconButton> = ({ name, label, href, target, download, active, disabled, loading }) => html`
+const Template: StoryFn<ArcIconButton> = ({ name, label, href, target, download, active, disabled, loading }) => html`
   <arc-icon-button
     name="${name}"
     label="${label}"

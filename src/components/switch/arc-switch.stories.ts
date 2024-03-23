@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import type ArcSwitch from './ArcSwitch.js';
@@ -15,7 +15,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ArcSwitch> = ({ name, value, checked, disabled }) => html`
+const Template: StoryFn<ArcSwitch> = ({ name, value, checked, disabled }) => html`
   <arc-switch
     name=${ifDefined(name || undefined)}
     value=${ifDefined(value || undefined)}

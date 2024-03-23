@@ -1,3 +1,5 @@
+/* eslint-disable lit/no-classfield-shadowing */
+
 import { html, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { map } from 'lit/directives/map.js';
@@ -68,10 +70,12 @@ export default class ArcAccessibility extends LitElement {
   };
 
   /** @internal - State that stores the user preferences. */
-  @state() private _userPreferences: UserPreferences = this._defaultPreferences;
+  @state()
+  private _userPreferences: UserPreferences = this._defaultPreferences;
 
   /** Indicates whether the drawer is open. This can be used instead of the show/hide methods. */
-  @property({ type: Boolean, reflect: true }) open: boolean = false;
+  @property({ type: Boolean, reflect: true })
+  open: boolean = false;
 
   @watch('_userPreferences')
   async handlePreferenceChange() {
@@ -214,14 +218,14 @@ export default class ArcAccessibility extends LitElement {
 
   radioTemplate(key: keyof UserPreferences, values: ContainerTheme[] | FontSize[]) {
     return html`
-      <arc-radio-group id=${key}>
+      <arc-radio-group id=${key as string}>
         <span slot="label">${stringToSpaceSeparated(key)}</span>
         ${map(
           values,
           value => html`
             <arc-radio
-              name=${key}
-              value=${value}
+              .name=${key}
+              .value=${value}
               ?checked=${value === this._userPreferences[key]}
               @arc-change=${this.handleOptionChange}
               >${uppercaseFirstLetter(value)}

@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { FLOATING_PLACEMENTS } from '../../internal/constants/placementConstants.js';
@@ -25,7 +25,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ArcDropdown> = ({ placement, distance, skidding, open, disabled, hoist }) => html`
+const Template: StoryFn<ArcDropdown> = ({ placement, distance, skidding, open, disabled, hoist }) => html`
   <arc-dropdown
     placement=${ifDefined(placement || undefined)}
     distance=${ifDefined(distance || undefined)}

@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { ARC_EVENTS } from '../../internal/constants/eventConstants.js';
 import type ArcImage from './ArcImage.js';
@@ -14,7 +14,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ArcImage> = ({ src, alt, delay, width, height }) => html`
+const Template: StoryFn<ArcImage> = ({ src, alt, delay, width, height }) => html`
   <arc-image src=${src} alt=${alt} delay=${delay} width=${width} height=${height}></arc-image>
 `;
 

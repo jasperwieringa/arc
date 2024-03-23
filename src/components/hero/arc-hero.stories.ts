@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import './arc-hero.js';
 
@@ -26,7 +26,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story = ({ background, fullscreen, customTitle, customSubTitle }) => html`
+const Template: StoryFn = ({ background, fullscreen, customTitle, customSubTitle }) => html`
   <arc-hero
     background=${ifDefined(background || undefined)}
     title=${ifDefined(customTitle || undefined)}

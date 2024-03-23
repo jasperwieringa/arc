@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import type ArcNavbar from './ArcNavbar.js';
@@ -10,7 +10,7 @@ export default {
   component: 'arc-navbar',
 } as Meta;
 
-const Template: Story<ArcNavbar> = ({ arup, home, logo, tabs }) => html`
+const Template: StoryFn<ArcNavbar> = ({ arup, home, logo, tabs }) => html`
   <arc-navbar
     home=${ifDefined(home || undefined)}
     logo=${ifDefined(logo || undefined)}
@@ -30,7 +30,7 @@ const Template: Story<ArcNavbar> = ({ arup, home, logo, tabs }) => html`
     ></arc-sso>
   </arc-navbar>
 `;
-const HeightTemplate: Story<ArcNavbar> = () =>
+const HeightTemplate: StoryFn<ArcNavbar> = () =>
   html`<arc-navbar logo="/arc-red.svg" style="height: 5rem;"></arc-navbar>`;
 
 const defaultArgs = {

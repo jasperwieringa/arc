@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import type ArcSpinner from './ArcSpinner.js';
 import './arc-spinner.js';
@@ -8,16 +8,16 @@ export default {
   component: 'arc-spinner',
 } as Meta;
 
-const Template: Story<ArcSpinner> = () => html`<arc-spinner></arc-spinner>`;
-const FontTemplate: Story<ArcSpinner> = () => html`
+const Template: StoryFn<ArcSpinner> = () => html`<arc-spinner></arc-spinner>`;
+const FontTemplate: StoryFn<ArcSpinner> = () => html`
   <arc-spinner></arc-spinner>
   <arc-spinner style="font-size: 2rem;"></arc-spinner>
   <arc-spinner style="font-size: 3rem;"></arc-spinner>
 `;
-const TrackWidthTemplate: Story<ArcSpinner> = () => html`
+const TrackWidthTemplate: StoryFn<ArcSpinner> = () => html`
   <arc-spinner style="font-size: 3rem; --track-width: .5rem;"></arc-spinner>
 `;
-const ColorTemplate: Story<ArcSpinner> = () => html`
+const ColorTemplate: StoryFn<ArcSpinner> = () => html`
   <arc-spinner style="font-size: 3rem; --stroke-color: red"></arc-spinner>
 `;
 

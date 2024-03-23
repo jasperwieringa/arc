@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { uppercaseFirstLetter } from '../../internal/string.js';
@@ -28,7 +28,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ArcTooltip> = ({ placement, distance, skidding, delay, trigger, open, disabled, hoist }) => html`
+const Template: StoryFn<ArcTooltip> = ({ placement, distance, skidding, delay, trigger, open, disabled, hoist }) => html`
   <arc-tooltip
     placement=${ifDefined(placement || undefined)}
     distance=${ifDefined(distance || undefined)}
