@@ -23,38 +23,21 @@ export default {
     /* Compile JS to a lower language target */
     babel({
       babelHelpers: 'bundled',
-      presets: [
-        [
-          require.resolve('@babel/preset-env'),
-          {
-            targets: [
-              'last 3 Chrome major versions',
-              'last 3 Firefox major versions',
-              'last 3 Edge major versions',
-              'last 3 Safari major versions',
-            ],
-            modules: false,
-            bugfixes: true,
-          },
-        ],
-      ],
+      presets: ['@babel/preset-env'],
       plugins: [
-        [
-          require.resolve('babel-plugin-template-html-minifier'),
-          {
-            modules: { lit: ['html', { name: 'css', encapsulation: 'style' }] },
-            failOnError: false,
-            strictCSS: true,
-            htmlMinifier: {
-              collapseWhitespace: true,
-              conservativeCollapse: true,
-              removeComments: true,
-              caseSensitive: true,
-              minifyCSS: true,
-            },
+        ['template-html-minifier', {
+          modules: { lit: ['html', { name: 'css', encapsulation: 'style' }] },
+          failOnError: false,
+          strictCSS: true,
+          htmlMinifier: {
+            collapseWhitespace: true,
+            conservativeCollapse: true,
+            removeComments: true,
+            caseSensitive: true,
+            minifyCSS: true,
           },
-        ],
-      ],
+        }]
+      ]
     }),
     injectProcessEnv({
       NODE_ENV: 'production',
