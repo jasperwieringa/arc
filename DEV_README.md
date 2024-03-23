@@ -61,30 +61,6 @@ yarn start
 
 This command will automatically start the application and open your default browser.
 
-## Index.html
-Web-dev-server uses the `index.html` file located in the main directory of the project.
-To avoid importing each new (or existing) component whenever you want to test it,
-the `index.html` file imports the entire ARC library.
-This is convenient for prototyping, but may result in longer load times.
-To improve this, you can cherry-pick the components you want to play around with.
-
-Replace the following line that imports the entire ARC library
-
-```bash
-<script type="module" src="out-tsc/arc.js" data-arc="/"></script>
-```
-
-with
-
-```bash
-<script type="module" data-arc="/">
-  import './out-tsc/components/container/arc-container.js';
-  import './out-tsc/components/navbar/arc-navbar.js';
-</script>
-```
-
-This only imports the `arc-container` and `arc-navbar` components.
-
 ## Available scripts
 The ARC component repository comes with a set of scripts.
 - `start` runs your app for development, reloading on file changes
@@ -92,10 +68,8 @@ The ARC component repository comes with a set of scripts.
 - `create` creates a web-component and all required files
 - `test` runs your test suite with Web Test Runner
 - `test:watch` runs your test suite with Web Test Runner while watching for file changes
-- `storybook` runs the web-component playground for your project
-- `storybook:build` builds the web-component playground for your project
-- `format` runs the formatter for your project
 - `lint` runs the linter for your project
+- `format` runs the formatter for your project
 - `analyze` runs the Custom Elements Manifest analyzer to generate a custom-elements.json file
 
 # 4. Create
