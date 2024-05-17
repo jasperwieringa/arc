@@ -37,8 +37,10 @@ export default class ArcAvatar extends LitElement {
     this._hasError = false;
   }
 
-  static styles = styles;
-
+  static get styles() {
+    return styles;
+  };
+  
   protected render() {
     return html`
       <div

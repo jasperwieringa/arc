@@ -48,8 +48,10 @@ export default class ArcSidebar extends LitElement {
     }
   }
 
-  static styles = styles;
-
+  static get styles() {
+    return styles;
+  };
+  
   /* Shows the sidebar. */
   show() {
     if (this.open) {

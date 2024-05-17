@@ -72,8 +72,10 @@ export default class ArcCard extends LitElement {
     }
   }
 
-  static styles = styles;
-
+  static get styles() {
+    return styles;
+  };
+  
   firstUpdated() {
     if (!this.hasSlotController.test('header')) {
       return;

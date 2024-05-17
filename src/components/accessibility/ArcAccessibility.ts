@@ -91,8 +91,10 @@ export default class ArcAccessibility extends LitElement {
     });
   }
 
-  static styles = styles;
-
+  static get styles() {
+    return styles;
+  };
+  
   connectedCallback() {
     super.connectedCallback();
 

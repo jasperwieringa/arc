@@ -61,8 +61,10 @@ export default class ArcNavbar extends LitElement {
     this._updateTemplate();
   }
 
-  static styles = styles;
-
+  static get styles() {
+    return styles;
+  };
+  
   /* Whenever a new arc-button or arc-icon-button gets added to the default slot. */
   private _handleTabChange(e: any) {
     const nodes = e.target.assignedElements({ flatten: true });

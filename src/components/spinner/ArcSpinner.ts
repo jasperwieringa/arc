@@ -6,8 +6,10 @@ import styles from './arc-spinner.styles.js';
  * @cssproperty --track-width - Set the thickness of the track.
  */
 export default class ArcSpinner extends LitElement {
-  static styles = styles;
-
+  static get styles() {
+    return styles;
+  };
+  
   protected render() {
     return html`
       <svg id="main" aria-busy="true" aria-live="polite">

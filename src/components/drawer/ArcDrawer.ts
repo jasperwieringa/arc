@@ -121,9 +121,11 @@ export default class ArcDrawer extends LitElement {
       emit(this, ARC_EVENTS.afterHide);
     }
   }
-
-  static styles = styles;
-
+  
+  static get styles() {
+    return styles;
+  };
+  
   connectedCallback() {
     super.connectedCallback();
     this.modal = new Modal(this);

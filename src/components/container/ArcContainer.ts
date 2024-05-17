@@ -46,7 +46,9 @@ export default class ArcContainer extends LitElement {
     }
   }
 
-  static styles = styles;
+  static get styles() {
+    return styles;
+  };
 
   /* Listen to keyboard input on the page */
   connectedCallback() {

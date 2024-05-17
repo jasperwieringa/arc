@@ -63,8 +63,10 @@ export default class ArcSwitch extends LitElement {
     this.invalid = !this.input.checkValidity();
   }
 
-  static styles = styles;
-
+  static get styles() {
+    return styles;
+  };
+  
   firstUpdated() {
     this.invalid = !this.input.checkValidity();
   }

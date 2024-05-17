@@ -48,8 +48,10 @@ export default class ArcRadio extends LitElement {
   @query('input[type="radio"]')
   input: HTMLInputElement;
 
-  static styles = styles;
-
+  static get styles() {
+    return styles;
+  };
+  
   firstUpdated() {
     this.updateComplete.then(() => {
       const radios = this.getAllRadios();

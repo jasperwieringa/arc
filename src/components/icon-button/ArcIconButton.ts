@@ -52,8 +52,10 @@ export default class ArcIconButton extends LitElement {
   @query('#main')
   button: HTMLButtonElement | HTMLLinkElement;
 
-  static styles = styles;
-
+  static get styles() {
+    return styles;
+  };
+  
   /* Simulates a click on the button. */
   click() {
     this.button.click();

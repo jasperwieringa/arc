@@ -142,8 +142,10 @@ export default class ArcTooltip extends LitElement {
     }
   }
 
-  static styles = styles;
-
+  static get styles() {
+    return styles;
+  };
+  
   connectedCallback() {
     super.connectedCallback();
     this.handleBlur = this.handleBlur.bind(this);

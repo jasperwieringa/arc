@@ -22,7 +22,9 @@ export default class ArcRadioGroup extends LitElement {
   @query('slot:not([name])')
   defaultSlot: HTMLSlotElement;
 
-  static styles = styles;
+  static get styles() {
+    return styles;
+  };
   
   /* When tabbing into the fieldset, make sure it lands on the checked radio */
   handleFocusIn() {

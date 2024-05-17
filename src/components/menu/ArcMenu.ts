@@ -26,8 +26,10 @@ export default class ArcMenu extends LitElement {
   @query('slot')
   defaultSlot: HTMLSlotElement;
 
-  static styles = styles;
-
+  static get styles() {
+    return styles;
+  };
+  
   getAllItems(options: { includeDisabled: boolean } = { includeDisabled: true }) {
     const { includeDisabled } = options;
 

@@ -91,8 +91,10 @@ export default class ArcImage extends LitElement {
     }
   }
 
-  static styles = styles;
-
+  static get styles() {
+    return styles;
+  };
+  
   firstUpdated() {
     this._attachObserver();
   }

@@ -27,8 +27,10 @@ export default class ArcChip extends LitElement {
   @property({ type: Boolean, reflect: true })
   clearable: boolean = false;
 
-  static styles = styles;
-
+  static get styles() {
+    return styles;
+  };
+  
   _handleClear() {
     emit(this, ARC_EVENTS.clear);
   }

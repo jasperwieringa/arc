@@ -120,8 +120,10 @@ export default class ArcDropdown extends LitElement {
     }
   }
 
-  static styles = styles;
-
+  static get styles() {
+    return styles;
+  };
+  
   connectedCallback() {
     super.connectedCallback();
     this.handlePanelSelect = this.handlePanelSelect.bind(this);

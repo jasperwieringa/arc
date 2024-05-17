@@ -10,8 +10,6 @@ import styles from './arc-menu-item.styles.js';
  * @slot suffix - Used to append an icon or similar element to the menu-item.
  */
 export default class ArcMenuItem extends LitElement {
-  static styles = styles;
-
   /** A unique value to store in the menu item. This can be used as a way to identify menu items when selected. */
   @property({ type: String })
   value: string;
@@ -24,6 +22,10 @@ export default class ArcMenuItem extends LitElement {
   handleDisabledChange() {
     this.setAttribute('aria-disabled', String(this.disabled));
   }
+
+  static get styles() {
+    return styles;
+  };
 
   firstUpdated() {
     this.setAttribute('role', 'menuitem');
