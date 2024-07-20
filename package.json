@@ -12,17 +12,14 @@
     "dist"
   ],
   "scripts": {
-    "prepare": "husky install",
-    "start": "concurrently -k -r \"npm:analyze\" \"storybook dev\"",
+    "start": "npm run analyze && storybook dev -p 6006",
     "build": "tsc",
     "create": "plop --plopfile scripts/plop/plopfile.mjs",
     "test": "wtr --coverage",
     "test:watch": "wtr --watch",
     "lint": "eslint --ext .ts --fix --ignore-path .gitignore",
     "format": "npm run lint && prettier \"**/*.ts\" --write --ignore-path .gitignore",
-    "analyze": "cem analyze --litelement",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "analyze": "cem analyze --litelement"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.6.3",
