@@ -182,7 +182,7 @@ describe('ArcAccessibility', () => {
 
     /* Grab the user preferences from the localStore */
     const getCachedPreferences = () => {
-      const cachedPreferences = localStorage.getItem(ArcAccessibility.tag);
+      const cachedPreferences = localStorage.getItem('arc-accessibility');
       let validateObject: UserPreferences = {} as any;
 
       if (cachedPreferences) {

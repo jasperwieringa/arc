@@ -2,17 +2,18 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "NodeNext",
-    
-    "declaration": true,
-    "incremental": false,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
 
+    /* Bundling */
+    "outDir": "./dist",
+    "declaration": true,
+
+    "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    
+    "strictNullChecks": true,
+
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
@@ -21,17 +22,12 @@
     "removeComments": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    
-    "outDir": "./out-tsc",
-    "rootDir": "./src"
   },
   "include": [
     "src/**/*.ts"
   ],
   "exclude": [
-    "out-tsc",
     "dist",
     "node_modules",
-    "src/**/*.test.ts"
   ]
 }

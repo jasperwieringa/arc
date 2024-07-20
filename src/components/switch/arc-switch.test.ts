@@ -6,7 +6,7 @@ import { serialize } from '../../utilities/form-utils.js';
 import { ARC_EVENTS } from '../../internal/constants/eventConstants.js';
 
 import type ArcSwitch from './ArcSwitch.js';
-import type ArcButton from '../button/ArcButton';
+import type ArcButton from '../button/ArcButton.js';
 import './arc-switch.js';
 import '../button/arc-button.js';
 

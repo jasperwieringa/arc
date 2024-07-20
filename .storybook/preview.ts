@@ -7,17 +7,9 @@ import '../themes/dark.css';
 import '../assets/arc-red.svg'
 import '../assets/icons.svg'
 
-setCustomElementsManifest(customElementsManifest);
-
-const preview: Preview = {
-  parameters: {
-    controls: {
-      matchers: {
-        color: /(colorPrimary|colorSecondary|btnColor|btnBackground|iconColor|strokeColor)$/i,
-        date: /Date$/i,
-      },
-    },
-  },
+export default {
+  // Write auto documentation
+  tags: ['autodocs'],
 };
 
-export default preview;
+setCustomElementsManifest(customElementsManifest);
